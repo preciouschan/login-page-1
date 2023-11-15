@@ -250,12 +250,12 @@
                     <form id="passwordForm">
                       <input type="password" placeholder="Password" id="password" name="password" required>
                         <span class="toggle-password" id="toggle-password">
-                              <i class="fas fa-eye"></i>
+                              <i class="fas fa-eye show-password" onclick="togglePasswordVisibility('password')"></i>
                         </span>
 
                       <input type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" required>
                          <span class="toggle-password" id="toggle-password">  
-                              <i class="fas fa-eye"></i>
+                              <i class="fas fa-eye show-password" onclick="togglePasswordVisibility('confirmPassword')"></i>
                          </span>
 
                          <div class="next text-center">
@@ -277,7 +277,23 @@
                           }
                       }
             </script>
-                                       
+                       <script>
+                        // Function to toggle password visibility
+                        function togglePasswordVisibility(fieldId) {
+                            var passwordField = document.getElementById(fieldId);
+                            var icon = document.querySelector(`#${fieldId} + div i`);
+                
+                            if (passwordField.type === "password") {
+                                passwordField.type = "text";
+                                icon.classList.remove('fa-eye');
+                                icon.classList.add('fa-eye');
+                            } else {
+                                passwordField.type = "password";
+                                icon.classList.remove('fa-eye');
+                                icon.classList.add('fa-eye');
+                            }
+                        }
+                    </script>                
                     <hr>
     </div>
             </div>
